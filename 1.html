@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>1.html</title>
+	
+    <meta http-equiv="keywords" content="keyword1,keyword2,keyword3">
+    <meta http-equiv="description" content="this is my page">
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+   <script type="text/javascript"  src="js/jquery-2.1.1.js"></script>
+	<script type="text/javascript"  src="js/jquery-2.1.1.min.js"></script>
+    <!--<link rel="stylesheet" type="text/css" href="./styles.css">-->
+
+  </head>
+  <script>
+   $(document).ready(function(){
+  $("#picture1").mouseover(function(){
+    
+     $.ajax({
+            type:"GET",
+            url:"servlet/servlet1",
+           // dataType:"",
+            data:"key=1",
+          
+            success:function(msg)
+                {   
+                    $("#result").html(msg);
+                
+                },
+     
+            });
+  });
+  
+  $("#picture2").mouseover(function(){
+    
+     $.ajax({
+            type:"GET",
+            url:"servlet/servlet1",
+           // dataType:"",
+            data:"key=2",
+          
+            success:function(msg)
+                {   
+                    $("#result").html(msg);
+                
+                },
+     
+            });
+  });
+  
+  $("#picture3").mouseover(function(){
+    
+     $.ajax({
+            type:"GET",
+            url:"servlet/servlet1",
+           // dataType:"",
+            data:"key=3",
+          
+            success:function(msg)
+                {   
+                    $("#result").html(msg);
+                
+                },
+     
+            });
+  });
+});
+</script>
+  <body>
+    <img src="images/img03.png" id="picture1">
+    <br>
+    <img src="images/img04.png" id="picture2">
+    <br>
+    <img src="images/img05.png" id="picture3">
+    <br>
+    <img src="images/img06.png" id="picture4">
+    <br>
+    <div id="result">
+    </div>
+    <a href="2.html">下一页</a>
+  </body>
+</html>

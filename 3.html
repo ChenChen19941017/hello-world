@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>3.html</title>
+	
+    <meta http-equiv="keywords" content="keyword1,keyword2,keyword3">
+    <meta http-equiv="description" content="this is my page">
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+      <script type="text/javascript"  src="js/jquery-2.1.1.js"></script>
+	<script type="text/javascript"  src="js/jquery-2.1.1.min.js"></script>
+    <!--<link rel="stylesheet" type="text/css" href="./styles.css">-->
+
+  </head>
+  <script>
+  $(document).ready(function(){
+	$("#province").change(function(){
+	var jqueryObj = $("#city");
+	jqueryObj.empty();
+		$.ajax({
+                    type: "post",
+                    url: "servlet/servlet3",
+                    dataType: "json",
+							data: {
+								"address": $("#province").val()
+							},
+            success: function(data) {
+                            $(data).each(function () {
+                        $("#city").append($("<option/>").text(this.address).attr("value",this.id));
+
+                    });
+                       }
+                    
+                    
+		});
+	});
+});
+  
+  </script>
+  <body>
+    省份<select id="province">
+     		<option  select="selected" value="">--请选择--</option>
+   			<option value="hebei">河北</option>
+         	 <option value="henan">河南</option>
+           	<option value="hunan">湖南</option>
+            <option value="hubei">湖北</option>
+            <option value="anhui">安徽</option>
+    
+    </select>
+    
+    <br>
+    城市<select id="city">
+    <option value="">--请选择--</option>
+    </select>
+  </body>
+</html>

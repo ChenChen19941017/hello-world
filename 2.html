@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>2.html</title>
+	
+    <meta http-equiv="keywords" content="keyword1,keyword2,keyword3">
+    <meta http-equiv="description" content="this is my page">
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+      <script type="text/javascript"  src="js/jquery-2.1.1.js"></script>
+	<script type="text/javascript"  src="js/jquery-2.1.1.min.js"></script>
+    <!--<link rel="stylesheet" type="text/css" href="./styles.css">-->
+
+  </head>
+  <script>
+$(document).ready(function(){
+	$("#button").click(function(){
+		$.ajax({
+                    type: "POST",
+                    url: "servlet/servlet2",
+                    data: {name:$("#name").val() ,pwd:$("#pwd").val()},
+                    success : function(msg) {
+                        if('success'==msg){
+                            location.href='3.html' ;
+                        }else{
+                            $('#msg').html(msg);
+                        }
+                    }
+		});
+	});
+});
+  </script>
+  <body>
+  <div id="msg">
+  </div>
+   姓名<input type="text" id="name" /><br>
+   密码<input type="text" id="pwd" /><br>
+   <input type="button" id="button" value="提交">
+  </body>
+</html>
